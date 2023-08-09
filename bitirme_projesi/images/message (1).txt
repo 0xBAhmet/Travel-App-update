@@ -1,0 +1,35 @@
+ checkUser() async {
+    final user =
+        await isar.users.where().filter().usernameEqualTo(username).findAll();
+    for (var i in user) {
+      String dbusername = i.username.toString();
+      String dbpass = i.pass.toString();
+
+      if (dbusername == username && dbpass == password) {
+        flag = true;
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return mScreen(
+              //kullanıcı adını da atabiliriz bilgileri değiştirmek için.
+              username: dbusername,
+              name: i.name.toString(),
+            );
+          },
+        ));
+        // GoRouter.of(context).push('/screen1');
+      } else {
+        setState(() {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text('Şifreniz Hatalı.'),
+          ));
+        });
+      }
+    }
+    if (user.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Text('Böyle Bir Kullanıcı Bulunamamaktadır'),
+      ));
+    }
+  }

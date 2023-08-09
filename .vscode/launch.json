@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "bitirme_projesi",
+            "cwd": "bitirme_projesi",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "bitirme_projesi (profile mode)",
+            "cwd": "bitirme_projesi",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "bitirme_projesi (release mode)",
+            "cwd": "bitirme_projesi",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
